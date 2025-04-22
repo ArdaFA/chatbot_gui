@@ -123,7 +123,7 @@ void MyFrame::OnSend(wxCommandEvent& event)
         wxLogMessage("You sent: %s", message);*/
         inputField->Clear(); // Clear after sending
     } else {
-        wxLogMessage("Do not ever try sending an empty message!");
+        wxLogMessage("Do not ever try sending an empty message!!!");
     }
 }
 void MyFrame::OnStop(wxCommandEvent& event) {
