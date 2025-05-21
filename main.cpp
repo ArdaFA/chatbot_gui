@@ -27,6 +27,10 @@ private:
     void OnStop(wxCommandEvent& event);
     void OnClear(wxCommandEvent& event);
 
+    void OnCounter(wxCommandEvent &event);
+
+    int counter = 0;
+
     wxTextCtrl* inputField; // text input for sending the message
     wxTextCtrl* m_display; // message, that will be shown in the window, hope not a pop-up
 
@@ -38,6 +42,8 @@ private:
     // options
     wxCheckBox* firstOption;
     wxCheckBox* secondOption;
+
+    wxButton* counterButton;
 
 };
 
@@ -89,6 +95,7 @@ MyFrame::MyFrame()
     sendButton = new wxButton(panel, wxID_ANY, "Send", wxPoint(240, 220), wxSize(45, 30));
     stopButton = new wxButton(panel, wxID_ANY, "Stop", wxPoint(290, 220), wxSize(40, 30));
     clearButton = new wxButton(panel, wxID_ANY, "Clear", wxPoint(335, 220), wxSize(50, 30));
+    counterButton = new wxButton(panel, wxID_ANY, "Counter", wxPoint(450, 220), wxSize(50, 30));
 
     firstOption = new wxCheckBox(panel, wxID_ANY, "First Option", wxPoint(10, 260));
     secondOption = new wxCheckBox(panel, wxID_ANY, "Second Option", wxPoint(10, 280));
@@ -97,6 +104,7 @@ MyFrame::MyFrame()
     sendButton->Bind(wxEVT_BUTTON, &MyFrame::OnSend, this);
     stopButton->Bind(wxEVT_BUTTON, &MyFrame::OnStop, this);
     clearButton->Bind(wxEVT_BUTTON, &MyFrame::OnClear, this);
+    counterButton->Bind(wxEVT_BUTTON, &MyFrame::OnCounter, this);
 
     Bind(wxEVT_MENU, &MyFrame::OnHello, this, ID_Hello);
     Bind(wxEVT_MENU, &MyFrame::OnAbout, this, wxID_ABOUT);
@@ -135,8 +143,15 @@ void MyFrame::OnSend(wxCommandEvent& event)
 void MyFrame::OnStop(wxCommandEvent& event) {
     Close(true);
     // or force computer to stop "thinking"
+    std::cout << "the following messages has sent during the conversation" << std::endl;
+    std::cout << m_display->GetValue() << std::endl;
 }
 
 void MyFrame::OnClear(wxCommandEvent& event) {
     m_display->Clear();
+}
+
+void MyFrame::OnCounter(wxCommandEvent& event) {
+    counter += 1;
+    std::cout << counter << std::endl;
 }
