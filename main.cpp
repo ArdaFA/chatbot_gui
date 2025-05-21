@@ -95,7 +95,7 @@ MyFrame::MyFrame()
     sendButton = new wxButton(panel, wxID_ANY, "Send", wxPoint(240, 220), wxSize(45, 30));
     stopButton = new wxButton(panel, wxID_ANY, "Stop", wxPoint(290, 220), wxSize(40, 30));
     clearButton = new wxButton(panel, wxID_ANY, "Clear", wxPoint(335, 220), wxSize(50, 30));
-    counterButton = new wxButton(panel, wxID_ANY, "Counter", wxPoint(450, 220), wxSize(50, 30));
+    counterButton = new wxButton(panel, wxID_ANY, "Counter", wxPoint(390, 220), wxSize(50, 30));
 
     firstOption = new wxCheckBox(panel, wxID_ANY, "First Option", wxPoint(10, 260));
     secondOption = new wxCheckBox(panel, wxID_ANY, "Second Option", wxPoint(10, 280));
