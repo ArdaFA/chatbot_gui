@@ -35,6 +35,10 @@ private:
     wxButton* stopButton;
     wxButton* clearButton;
 
+    // options
+    wxCheckBox* firstOption;
+    wxCheckBox* secondOption;
+
 };
 
 enum
@@ -86,11 +90,13 @@ MyFrame::MyFrame()
     stopButton = new wxButton(panel, wxID_ANY, "Stop", wxPoint(290, 220), wxSize(40, 30));
     clearButton = new wxButton(panel, wxID_ANY, "Clear", wxPoint(335, 220), wxSize(50, 30));
 
+    firstOption = new wxCheckBox(panel, wxID_ANY, "First Option", wxPoint(10, 260));
+    secondOption = new wxCheckBox(panel, wxID_ANY, "Second Option", wxPoint(10, 280));
+
     // connect the button click
     sendButton->Bind(wxEVT_BUTTON, &MyFrame::OnSend, this);
     stopButton->Bind(wxEVT_BUTTON, &MyFrame::OnStop, this);
     clearButton->Bind(wxEVT_BUTTON, &MyFrame::OnClear, this);
-
 
     Bind(wxEVT_MENU, &MyFrame::OnHello, this, ID_Hello);
     Bind(wxEVT_MENU, &MyFrame::OnAbout, this, wxID_ABOUT);
